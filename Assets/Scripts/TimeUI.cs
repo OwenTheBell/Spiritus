@@ -30,6 +30,12 @@ public class TimeUI : MonoBehaviour {
 				fader.FadeIn();
 			}
 		}
+		else if (!Ghost.WaitingForHandkerchief) {
+			_Slider.gameObject.SetActive(false);
+			foreach (UIFader fader in _Faders) {
+				fader.FadeOut();
+			}
+		}
 
 		if (InPresent  && _Slider.normalizedValue == 0f) {
 			InPresent = false;

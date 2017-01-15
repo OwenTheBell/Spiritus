@@ -36,7 +36,7 @@ public class GhostController : MonoBehaviour {
 
 	public bool PlayerIsClose { get; private set; }
 	public bool WaitingForHandkerchief { get; private set; }
-	public bool GhostIsHappy { get; private set; }
+	public bool Happy { get; private set; }
 	public bool Talking {
 		get {
 			return (_State == GhostState.TellingStory ||
@@ -51,7 +51,7 @@ public class GhostController : MonoBehaviour {
 
 		PlayerIsClose = false;
 		WaitingForHandkerchief = false;
-		GhostIsHappy = false;
+		Happy = false;
 	}
 
 	// Use this for initialization
@@ -95,6 +95,7 @@ public class GhostController : MonoBehaviour {
 						}
 					}
 					else {
+						WaitingForHandkerchief = false;
 						_AudioSource.clip = ThanksClip;
 						_AudioSource.Play();
 						_State = GhostState.TellingThanks;
@@ -103,7 +104,7 @@ public class GhostController : MonoBehaviour {
 				break;
 			case GhostState.TellingThanks:
 				if (!_AudioSource.isPlaying) {
-					GhostIsHappy = true;
+					Happy = true;
 				}
 				break;
 		}
