@@ -21,7 +21,7 @@ public class TimeController : MonoBehaviour {
 		}
 		else if (Past.gameObject.active && TimeUI.InPresent) {
 			Present.gameObject.SetActive(true);
-			Present.gameObject.SetActive(false);
+			Past.gameObject.SetActive(false);
 		}
 	}
 
