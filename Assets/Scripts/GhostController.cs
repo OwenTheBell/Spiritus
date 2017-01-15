@@ -11,6 +11,9 @@ public class GhostController : MonoBehaviour {
 
 	public PlayerController Player;
 
+	public float AppearanceDelay;
+	public float FadeInTime;
+
 	private AudioSource _AudioSource;
 	private SpriteRenderer _Renderer;
 
@@ -58,8 +61,7 @@ public class GhostController : MonoBehaviour {
 		_Renderer.color = Color.clear;
 
 		_State = GhostState.WaitingToTellStory;
-
-		Appear();
+		// Appear();
 	}
 	
 	// Update is called once per frame
@@ -120,13 +122,15 @@ public class GhostController : MonoBehaviour {
 		_PlayerWalkedAway = false;
 	}
 
-	void Appear() {
-		StartCoroutine(FadeIn(5f));
+	public void Appear() {
+		StartCoroutine(FadeIn(AppearanceDelay, FadeInTime));
 	}
 
-	IEnumerator FadeIn(float duration) {
-		float time = 0f;
+	IEnumerator FadeIn(float delay, float duration) {
 
+		yield return new WaitForSeconds(delay);
+
+		float time = 0f;
 		while (time < duration) {
 			time += Time.deltaTime;
 			float t = Mathf.Clamp01(time/duration);

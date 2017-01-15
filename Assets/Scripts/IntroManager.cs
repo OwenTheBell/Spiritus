@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class IntroManager : MonoBehaviour {
 
 	public UIFader IntroFader;
+	public PresentController Present;	
 	public KeyCode DebugKey;
 
 	// Use this for initialization
@@ -34,13 +35,9 @@ public class IntroManager : MonoBehaviour {
 			}
 
 			if (left && right) {
-				// IntroImage.gameObject.SetActive(false);
 				IntroFader.FadeOut();
+				Present.Begin();
 			}
-		}
-
-		if (!IntroFader.Visible) {
-			Debug.Log("IT BEGINS!!!!");
 		}
 	}
 }
