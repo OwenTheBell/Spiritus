@@ -22,7 +22,8 @@ public class GhostController : MonoBehaviour {
 								TellingStory,
 								TellingMission,
 								WaitingForHandkerchief,
-								TellingThanks
+								TellingThanks,
+								AtRest
 							};
 	private GhostState _State;
 
@@ -61,7 +62,6 @@ public class GhostController : MonoBehaviour {
 		_Renderer.color = Color.clear;
 
 		_State = GhostState.WaitingToTellStory;
-		// Appear();
 	}
 	
 	// Update is called once per frame
@@ -77,9 +77,9 @@ public class GhostController : MonoBehaviour {
 				}
 				break;
 			case GhostState.TellingStory:
-				// if (!_AudioSource.isPlaying) {
+				if (!_AudioSource.isPlaying) {
 					TellMission();
-				// }
+				}
 				break;
 			case GhostState.TellingMission:
 				if (!_AudioSource.isPlaying) {
@@ -96,6 +96,7 @@ public class GhostController : MonoBehaviour {
 					}
 					else {
 						WaitingForHandkerchief = false;
+						Player.TakeHandkerchief();
 						_AudioSource.clip = ThanksClip;
 						_AudioSource.Play();
 						_State = GhostState.TellingThanks;
@@ -105,6 +106,7 @@ public class GhostController : MonoBehaviour {
 			case GhostState.TellingThanks:
 				if (!_AudioSource.isPlaying) {
 					Happy = true;
+					_State = GhostState.AtRest;
 				}
 				break;
 		}
