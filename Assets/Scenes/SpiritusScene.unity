@@ -1808,6 +1808,7 @@ GameObject:
   - 54: {fileID: 857812858}
   - 135: {fileID: 857812857}
   - 114: {fileID: 857812859}
+  - 114: {fileID: 857812860}
   m_Layer: 8
   m_Name: Book
   m_TagString: Untagged
@@ -1901,7 +1902,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857812854}
   m_LocalRotation: {x: 0, y: 0.69370323, z: 0, w: 0.720261}
-  m_LocalPosition: {x: 3, y: -1.56, z: 0}
+  m_LocalPosition: {x: 1.31, y: -1.56, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 87.8479, z: 0}
   m_Children:
@@ -1918,7 +1919,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &857812858
 Rigidbody:
@@ -1946,6 +1947,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0825190810b426491e4886b95038b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &857812860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857812854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a519267ba35674dcda0c9d8b5b9200d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_turnOffDepthCamera: 1
+  m_floorFound: 0
 --- !u!1 &967461662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2073,14 @@ Prefab:
     - target: {fileID: 11400006, guid: ff519ec4bed0442dc9bf3a21a9777c4d, type: 2}
       propertyPath: m_videoOverlayUseByteBufferMethod
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: ff519ec4bed0442dc9bf3a21a9777c4d, type: 2}
+      propertyPath: m_showEmulationOptionsInInspector
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476464, guid: ff519ec4bed0442dc9bf3a21a9777c4d, type: 2}
+      propertyPath: m_drawDefaultUXExceptions
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff519ec4bed0442dc9bf3a21a9777c4d, type: 2}
